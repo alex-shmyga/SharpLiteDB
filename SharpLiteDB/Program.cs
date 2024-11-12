@@ -1,4 +1,5 @@
-﻿using SharpLiteDB.Storage;
+﻿using SharpLiteDB.Factories;
+using SharpLiteDB.Storage;
 
 namespace SharpLiteDB
 {
@@ -26,6 +27,8 @@ namespace SharpLiteDB
 
         private static void ProcessCommand(string input, InMemoryStorage storage)
         {
+            var command = CommandFactory.CreateCommand(input, storage);
+            command?.Execute();
         }
     }
 
