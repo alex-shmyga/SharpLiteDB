@@ -7,22 +7,31 @@ namespace SharpLiteDB
         static void Main(string[] args)
         {
             var storage = new InMemoryStorage();
+            Console.WriteLine($"Welcome to {Constants.DbEngineName}! Type '{Constants.ExitCommand}' to quit.");
 
-            // Create a new table
-            storage.CreateTable("users");
-
-            // Insert rows
-            storage.InsertRow("users", new Dictionary<string, object> { { "id", 1 }, { "name", "Alice" } });
-            storage.InsertRow("users", new Dictionary<string, object> { { "id", 2 }, { "name", "Bob" } });
-
-            // Select all rows
-            var rows = storage.SelectAll("users");
-            foreach (var row in rows)
+            while (true)
             {
-                Console.WriteLine($"ID: {row.Data["id"]}, Name: {row.Data["name"]}");
-            }
+                Console.Write("> ");
+                string input = Console.ReadLine();
 
-            Console.ReadKey();
+                if (input == null || input.Trim().ToLower() == Constants.ExitCommand)
+                {
+                    Console.WriteLine($"Exiting {Constants.DbEngineName}. Goodbye!");
+                    break;
+                }
+
+                ProcessCommand(input, storage);
+            }
         }
+
+        private static void ProcessCommand(string input, InMemoryStorage storage)
+        {
+        }
+    }
+
+    public static class Constants
+    {
+        public const string DbEngineName = "SharpLiteDB";
+        public const string ExitCommand = ".quit";
     }
 }
