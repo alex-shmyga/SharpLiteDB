@@ -24,7 +24,9 @@ To get started, clone the repository and open it in your C# development environm
 > INSERT INTO users (id, name) VALUES (1, 'Alice')
 
 > SELECT * FROM users
-Current Limitations
+
+
+#### Current Limitations
 
 note: This project is a simplified learning tool, so it doesn’t support:
 - Complex SQL syntax or advanced queries.
