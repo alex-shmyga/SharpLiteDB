@@ -7,7 +7,7 @@ namespace SharpLiteDB
     {
         static void Main(string[] args)
         {
-            var storage = new InMemoryStorage();
+            IStorage storage = new DiskStorage();
             Console.WriteLine($"Welcome to {Constants.DbEngineName}! Type '{Constants.ExitCommand}' to quit.");
 
             while (true)
@@ -25,7 +25,7 @@ namespace SharpLiteDB
             }
         }
 
-        private static void ProcessCommand(string input, InMemoryStorage storage)
+        private static void ProcessCommand(string input, IStorage storage)
         {
             var command = CommandFactory.CreateCommand(input, storage);
             command?.Execute();

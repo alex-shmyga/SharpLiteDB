@@ -7,7 +7,7 @@ namespace SharpLiteDB.Factories
     // TODO: add unit tests and refactor
     internal static class CommandFactory
     {
-        internal static ICommand CreateCommand(string input, InMemoryStorage storage)
+        internal static ICommand CreateCommand(string input, IStorage storage)
         {
             if (input.StartsWith("CREATE TABLE", StringComparison.OrdinalIgnoreCase))
             {

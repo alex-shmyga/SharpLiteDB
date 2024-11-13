@@ -4,7 +4,7 @@ namespace SharpLiteDB.Commands
 {
     internal class CreateTableCommand : BaseCommand
     {
-        internal CreateTableCommand(InMemoryStorage storage, string tableName)
+        internal CreateTableCommand(IStorage storage, string tableName)
             : base(storage, tableName)
         {
         }

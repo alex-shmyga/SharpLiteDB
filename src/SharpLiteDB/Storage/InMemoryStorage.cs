@@ -2,11 +2,11 @@
 
 namespace SharpLiteDB.Storage
 {
-    internal class InMemoryStorage
+    internal class InMemoryStorage : IStorage
     {
         private IDictionary<string, Table> tables = new Dictionary<string, Table>();
 
-        internal void CreateTable(string name)
+        public void CreateTable(string name)
         {
             if (tables.ContainsKey(name))
                 throw new Exception("Table already exists.");
@@ -15,7 +15,7 @@ namespace SharpLiteDB.Storage
             Console.WriteLine($"InMemoryStorage:Table '{name}' created.");
         }
 
-        internal void DropTable(string name)
+        public void DropTable(string name)
         {
             if (!tables.ContainsKey(name))
                 throw new Exception("Table does not exist.");
@@ -24,7 +24,7 @@ namespace SharpLiteDB.Storage
             Console.WriteLine($"InMemoryStorage:Table '{name}' was removed.");
         }
 
-        internal void InsertRow(string tableName, Dictionary<string, object> rowData)
+        public void InsertRow(string tableName, Dictionary<string, object> rowData)
         {
             if (!tables.ContainsKey(tableName))
                 throw new Exception("Table does not exist.");
@@ -34,7 +34,7 @@ namespace SharpLiteDB.Storage
             Console.WriteLine("InMemoryStorage:Row inserted.");
         }
 
-        internal IList<Row> SelectAll(string tableName)
+        public IList<Row> SelectAll(string tableName)
         {
             if (!tables.ContainsKey(tableName))
                 throw new Exception("Table does not exist.");

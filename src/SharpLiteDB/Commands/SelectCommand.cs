@@ -4,7 +4,7 @@ namespace SharpLiteDB.Commands
 {
     internal class SelectCommand : BaseCommand
     {
-        internal SelectCommand(InMemoryStorage storage, string tableName)
+        internal SelectCommand(IStorage storage, string tableName)
             : base(storage, tableName)
         {
         }

@@ -6,7 +6,7 @@ namespace SharpLiteDB.Commands
     {
         private readonly Dictionary<string, object> _rowData;
 
-        internal InsertCommand(InMemoryStorage storage, string tableName, Dictionary<string, object> rowData)
+        internal InsertCommand(IStorage storage, string tableName, Dictionary<string, object> rowData)
             : base(storage, tableName)
         {
             _rowData = rowData;

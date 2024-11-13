@@ -4,7 +4,7 @@ namespace SharpLiteDB.Commands
 {
     internal class DropTableCommand : BaseCommand
     {
-        internal DropTableCommand(InMemoryStorage storage, string tableName)
+        internal DropTableCommand(IStorage storage, string tableName)
             : base(storage, tableName)
         {
         }
